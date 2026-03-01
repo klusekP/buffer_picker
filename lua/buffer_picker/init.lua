@@ -50,7 +50,6 @@ function M.pick_buffer()
   }):find()
 end
 
-local opts = { noremap = true, silent = true, desc = "Buffer picker" }
-vim.keymap.set("n", "<Leader>bp", M.pick_buffer, opts)
+vim.keymap.set("n", "<Tab>", M.pick_buffer, { noremap = true, silent = true, desc = "Buffer picker" })
 
 return M
