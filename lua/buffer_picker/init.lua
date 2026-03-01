@@ -1,6 +1,9 @@
 return {
   "buffer_picker",
   event = "VeryLazy",
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+  },
   config = function()
     local function pick_buffer()
       local buffers = {}
