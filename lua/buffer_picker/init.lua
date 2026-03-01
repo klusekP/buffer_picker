@@ -3,6 +3,16 @@
 
 local M = {}
 
+local defaults = {
+  keymap = "<M-Tab>",
+}
+
+function M.setup(opts)
+  opts = vim.tbl_deep_extend("force", defaults, opts or {})
+
+  vim.keymap.set("n", opts.keymap, M.pick_buffer, { noremap = true, silent = true, desc = "Buffer picker" })
+end
+
 function M.pick_buffer()
   local buffers = {}
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -50,6 +60,7 @@ function M.pick_buffer()
   }):find()
 end
 
-vim.keymap.set("n", "<Tab>", M.pick_buffer, { noremap = true, silent = true, desc = "Buffer picker" })
+-- Auto-setup with default keymap
+M.setup()
 
 return M
