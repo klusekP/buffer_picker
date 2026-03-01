@@ -1,7 +1,9 @@
 -- buffer_picker.nvim
 -- Telescope-based buffer picker for Neovim
 
-local function pick_buffer()
+local M = {}
+
+function M.pick_buffer()
   local buffers = {}
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_buf_is_valid(buf) and vim.fn.buflisted(buf) == 1 then
@@ -49,4 +51,6 @@ local function pick_buffer()
 end
 
 local opts = { noremap = true, silent = true, desc = "Buffer picker" }
-vim.keymap.set("n", "<Leader>bp", pick_buffer, opts)
+vim.keymap.set("n", "<Leader>bp", M.pick_buffer, opts)
+
+return M
