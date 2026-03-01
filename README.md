@@ -12,23 +12,30 @@ A simple buffer picker for Neovim using Telescope.
 With LazyVim/Lazy.nvim:
 
 ```lua
-{ "klusekP/buffer_picker" }
+  {
+    "klusekP/buffer_picker",
+    name = "buffer_picker",
+    init = function()
+      require("buffer_picker").setup({ keymap = "<M-Tab>" })
+    end,
+  }
 ```
 
 ## Usage
 
 Press `<M-Tab>` to open buffer picker, then:
+
 - Type to filter buffers
 - Press `<Enter>` to select buffer
 - Press `<Esc>` to close
 
 ## Keymap
 
-| Key | Action |
-|-----|--------|
+| Key       | Action             |
+| --------- | ------------------ |
 | `<M-Tab>` | Open buffer picker |
-| `<Enter>` | Select buffer |
-| `<Esc>` | Close picker |
+| `<Enter>` | Select buffer      |
+| `<Esc>`   | Close picker       |
 
 You can customize the keymap in your config:
 
