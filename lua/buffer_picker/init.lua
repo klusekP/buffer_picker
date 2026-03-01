@@ -49,4 +49,4 @@ local function pick_buffer()
 end
 
 local opts = { noremap = true, silent = true, desc = "Buffer picker" }
-vim.keymap.set("n", "<M-Tab>", pick_buffer, opts)
+vim.keymap.set("n", "<Leader>bp", pick_buffer, opts)
